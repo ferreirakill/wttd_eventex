@@ -35,3 +35,9 @@ class SubscribeTest(TestCase):
         """Context must have 4 fields"""
         form = self.resp.context['form']
         self.assertSequenceEqual(['name', 'cpf', 'email', 'phone'], list(form.fields))
+
+class SubscribePostTest(TestCase):
+    def test_post(self):
+        """Valid POST should redirect to /inscricao/ """
+        data = dict(name="Diego Ferreira", cpf='12345678901',
+                    email='tecnodiego@gmail.com', phone='67 99990000')
